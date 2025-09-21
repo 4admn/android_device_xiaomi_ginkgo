@@ -22,4 +22,5 @@ PRODUCT_MODEL := Redmi Note 8
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-BUILD_FINGERPRINT := xiaomi/ginkgo_eea/ginkgo:11/RKQ1.201004.002/V12.5.12.0.RCOEUXM:user/release-keys
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BuildFingerprint=google/husky_beta/husky:16/BP41.250822.010/14082742:user/release-keys
