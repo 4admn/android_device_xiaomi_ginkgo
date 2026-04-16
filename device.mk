@@ -7,6 +7,9 @@
 # Inherit from sm6125-common
 $(call inherit-product, device/xiaomi/sm6125-common/common.mk)
 
+# MiuiCamera
+$(call inherit-product-if-exists, device/xiaomi/miuicamera-ginkgo/device.mk)
+
 DEVICE_PATH := device/xiaomi/ginkgo
 
 # AAPT

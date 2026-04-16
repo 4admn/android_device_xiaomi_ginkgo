@@ -9,6 +9,9 @@ include device/xiaomi/sm6125-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/ginkgo
 
+# MiuiCamera
+-include device/xiaomi/miuicamera-ginkgo/BoardConfig.mk
+
 # A/B
 AB_OTA_UPDATER := false
 
