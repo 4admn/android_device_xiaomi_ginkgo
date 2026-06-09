@@ -3,6 +3,11 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+# MiCam Board Yapılandırmaları ve SELinux
+-include device/xiaomi/miuicamera-ginkgo/BoardConfig.mk
+-include vendor/xiaomi/miuicamera-ginkgo/BoardConfigVendor.mk
+# MiCam SELinux
+BOARD_SEPOLICY_DIRS += device/xiaomi/miuicamera-ginkgo/sepolicy
 
 # Inherit from sm6125-common
 include device/xiaomi/sm6125-common/BoardConfigCommon.mk
