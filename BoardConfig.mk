@@ -36,6 +36,35 @@ TARGET_SCREEN_DENSITY := 440
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/ginkgo.config
 
+# Dynamic Partitions (Retrofit Setup)
+BOARD_SUPER_PARTITION_SIZE := 6442450944
+BOARD_SUPER_PARTITION_GROUPS := ginkgo_dynapart
+BOARD_GINKGO_DYNAPART_PARTITION_LIST := system vendor product system_ext
+BOARD_GINKGO_DYNAPART_SIZE := 6438252544
+BOARD_SUPER_PARTITION_BLOCK_DEVICES := system vendor product system_ext
+BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 1610612736
+BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 1610612736
+BOARD_SUPER_PARTITION_PRODUCT_DEVICE_SIZE := 2684354560
+BOARD_SUPER_PARTITION_SYSTEM_EXT_DEVICE_SIZE := 536870912
+BOARD_SUPER_PARTITION_METADATA_DEVICE := system
+
+# File System Types
+PARTITIONS := system vendor product system_ext
+ifeq ($(WITH_GMS),true)
+$(foreach p, $(call to-upper, $(PARTITIONS)), \
+    $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := erofs))
+else
+# Vanilla derlemelerde RAM ve performans optimizasyonu için ext4'e düşer
+$(eval BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4)
+$(eval BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs)
+$(eval BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4)
+$(eval BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4)
+endif
+
+$(foreach p, $(call to-upper, $(PARTITIONS)), \
+    $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
+
+
 # Partitions
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4831838208
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1610612736
