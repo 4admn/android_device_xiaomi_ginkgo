@@ -3,6 +3,13 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+# Enable Retrofit Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
+
+# Fastbootd (Dinamik bölümlere imaj yazabilmek için kesinlikle zorunlu)
+PRODUCT_PACKAGES += \
+    fastbootd
 
 # Inherit from sm6125-common
 $(call inherit-product, device/xiaomi/sm6125-common/common.mk)
