@@ -24,6 +24,9 @@ BYPASS_CHARGE_SUPPORTED := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 USE_PIXEL_CHARGING := true
 
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 # Dolby
 $(call inherit-product-if-exists, hardware/dolby/dolby.mk)
 
