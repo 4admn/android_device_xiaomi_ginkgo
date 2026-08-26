@@ -107,4 +107,3 @@ VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Inherit from the proprietary version
 include vendor/xiaomi/ginkgo/BoardConfigVendor.mk
-include vendor/xiaomi/ginkgo/BoardConfigVendor.mk
