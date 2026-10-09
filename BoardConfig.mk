@@ -31,7 +31,7 @@ TARGET_SCREEN_DENSITY := 440
 
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/ginkgo.config
-
+BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/4744000.sdhci
 
 # Partitions
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4831838208
@@ -46,7 +46,6 @@ ODM_MANIFEST_SKUS += willow
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
-BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/4744000.sdhci
 
 # Sepolicy
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
