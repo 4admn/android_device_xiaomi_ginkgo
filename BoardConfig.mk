@@ -7,11 +7,7 @@ BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 ALLOW_MISSING_DEPENDENCIES := true
-# MiCam Board Yapılandırmaları ve SELinux
--include device/xiaomi/miuicamera-ginkgo/BoardConfig.mk
--include vendor/xiaomi/miuicamera-ginkgo/BoardConfigVendor.mk
-# MiCam SELinux
-BOARD_SEPOLICY_DIRS += device/xiaomi/miuicamera-ginkgo/sepolicy
+
 
 # Inherit from sm6125-common
 include device/xiaomi/sm6125-common/BoardConfigCommon.mk
@@ -36,6 +32,7 @@ TARGET_SCREEN_DENSITY := 440
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/ginkgo.config
 
+
 # Partitions
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4831838208
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1610612736
@@ -49,6 +46,7 @@ ODM_MANIFEST_SKUS += willow
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
+BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/4744000.sdhci
 
 # Sepolicy
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
